@@ -1,0 +1,40 @@
+{
+  "name": "bootglamor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gparas/bootglamor.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "gparas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gparas/bootglamor/issues"
+  },
+  "homepage": "https://github.com/gparas/bootglamor#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0"
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/react": "^3.4.8",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
