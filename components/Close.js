@@ -5,15 +5,23 @@ import { mix } from 'polished';
 
 import {
   color,
-  borderRadius,
+  fontSize,
 } from '../style/constants';
 
-const AlertStyle = glamorous.div(
+const CloseStyle = glamorous.button(
   {
-    position: 'relative',
-    padding: '0.75rem 1.25rem',
-    marginBottom: '1rem',
-    borderRadius,
+    float: 'right',
+    fontSize: fontSize.large,
+    fontWeight: 'bold',
+    lineHeight: 1,
+    color: color.black,
+    opacity: 0.5,
+    ':hover': {
+      color: color.black,
+      textDecoration: 'none',
+      opacity: 0.75,
+    },
+    ':focus': { outline: 0 },
   },
   ({ status }) => ({
     color: mix(0.48, color.black, color[status]),
@@ -22,24 +30,24 @@ const AlertStyle = glamorous.div(
   }),
 );
 
-function Alert({ children, status, className }) {
+function Close({ children, className }) {
   return (
-    <AlertStyle status={status} className={className} role="alert">
+    <CloseStyle className={className} role="alert">
       {children}
-    </AlertStyle>
+    </CloseStyle>
   );
 }
 
-Alert.defaultProps = {
+Close.defaultProps = {
   status: 'info',
   className: '',
   children: '',
 };
 
-Alert.propTypes = {
+Close.propTypes = {
   status: PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
   className: PropTypes.string,
   children: PropTypes.node,
 };
 
-export default Alert;
+export default Close;

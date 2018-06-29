@@ -16,7 +16,7 @@ css.global('body', {
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   fontSize: fontSize.base,
   lineHeight: 1.5,
-  color: color.grayDark,
+  color: color.dark,
   backgroundColor: '#fff',
   margin: 0,
 });

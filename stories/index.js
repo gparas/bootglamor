@@ -1,11 +1,22 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import Alert from '../components/Alert';
+import { withKnobs } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Alert>
-      Hello Button
-    </Alert>
-  ));
+import {
+  AlertExample,
+} from './components/';
+
+const storyWrapper = (story) => {
+  return (
+    <div style={{ margin: '35px' }}>
+      {story()}
+    </div>
+  );
+};
+
+storiesOf('Components|Alert', module)
+  .addDecorator((story, context) => withInfo('')(story)(context))
+  .addDecorator(storyWrapper)
+  .addDecorator(withKnobs)
+  .add('Default', AlertExample);

@@ -1,0 +1,1 @@
+export AlertExample from './Alert';
