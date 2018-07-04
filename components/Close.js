@@ -1,53 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
-import { mix } from 'polished';
 
 import {
   color,
-  fontSize,
-} from '../style/constants';
+} from './constants';
 
 const CloseStyle = glamorous.button(
   {
     float: 'right',
-    fontSize: fontSize.large,
+    fontSize: '1.25rem',
     fontWeight: 'bold',
-    lineHeight: 1,
+    lineHeight: 1.2,
     color: color.black,
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    border: 0,
+    padding: 0,
+    WebkitAppearance: 'none',
     opacity: 0.5,
     ':hover': {
       color: color.black,
       textDecoration: 'none',
       opacity: 0.75,
     },
-    ':focus': { outline: 0 },
+    ':focus': {
+      outline: 0,
+      color: color.black,
+      textDecoration: 'none',
+      opacity: 0.75,
+    },
   },
-  ({ status }) => ({
-    color: mix(0.48, color.black, color[status]),
-    backgroundColor: mix(0.8, color.white, color[status]),
-    border: `1px solid ${mix(0.72, color.white, color[status])}`,
-  }),
 );
 
-function Close({ children, className }) {
+function Close({ onClick, className }) {
   return (
-    <CloseStyle className={className} role="alert">
-      {children}
+    <CloseStyle type="button" aria-label="Close" onClick={onClick} className={className}>
+      <span aria-hidden="true">
+        &times;
+      </span>
     </CloseStyle>
   );
 }
 
-Close.defaultProps = {
-  status: 'info',
-  className: '',
-  children: '',
-};
 
 Close.propTypes = {
-  status: PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
+  onClick: PropTypes.func,
   className: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default Close;
