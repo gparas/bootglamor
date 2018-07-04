@@ -30,4 +30,4 @@ export const fontSize = {
 
 export const lineHeight = [1, 1.25, 1.5];
 
-export const borderRadius = 4;
+export const borderRadius = '.25rem';

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import { mix } from 'polished';
+import Close from './Close';
 
 import {
   color,
@@ -22,24 +23,38 @@ const AlertStyle = glamorous.div(
   }),
 );
 
-function Alert({ children, status, className }) {
+const DismissButton = glamorous(Close)(
+  {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    padding: '0.75rem 1.25rem',
+  },
+);
+
+function Alert({
+  children, status, className, isDismissible,
+}) {
   return (
     <AlertStyle status={status} className={className} role="alert">
       {children}
+      {isDismissible && (
+        <DismissButton onClick={isDismissible} />
+      )}
     </AlertStyle>
   );
 }
 
 Alert.defaultProps = {
   status: 'info',
-  className: '',
-  children: '',
 };
 
 Alert.propTypes = {
-  status: PropTypes.oneOf(['success', 'info', 'warning', 'danger']),
+  /** success, info, warning, danger */
+  status: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
+  isDismissible: PropTypes.func,
 };
 
 export default Alert;

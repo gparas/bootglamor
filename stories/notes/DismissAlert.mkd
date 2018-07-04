@@ -1,0 +1,30 @@
+## Dismiss Alert
+It’s possible to dismiss any alert inline.
+Here’s how:
+
+~~~JS
+
+  import React, {Component} from 'react';
+  import Alert from '../../../components/Alert';
+
+  class DismissAlertExample extends Component {
+    state = {
+      visible: true
+    };
+
+    onDismiss = () => {
+      this.setState({ visible: false });
+    }
+
+    render() {
+      return this.state.visible && (
+        <Alert dismissAlert={this.onDismiss}>
+          I am an alert and I can be dismissed!
+        </Alert>
+      );
+    }
+  }
+
+  export default DismissAlertExample;
+
+~~~

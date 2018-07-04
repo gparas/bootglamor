@@ -4,7 +4,7 @@ import glamorous from 'glamorous';
 
 import {
   color,
-} from './constants';
+} from '../style/constants';
 
 const CloseStyle = glamorous.button(
   {
@@ -43,6 +43,10 @@ function Close({ onClick, className }) {
   );
 }
 
+Close.defaultProps = {
+  className: '',
+  onClick: null,
+};
 
 Close.propTypes = {
   onClick: PropTypes.func,
